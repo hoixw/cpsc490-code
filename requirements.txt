@@ -1,0 +1,27 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+jax[cpu]
+keras
+lightgbm
+matplotlib
+numpy
+openai
+pandas
+pillow
+requests
+safetensors
+scapy
+scikeras
+scikit-learn
+scipy
+seaborn
+statsmodels
+tensorboard
+tensorboard-data-server
+tensorboard-plugin-profile
+tensorflow[and-cuda]~=2.18.0
+tensorflow-cpu~=2.18.0
+tf2onnx
+tqdm
+torch==2.6.0
+xgboost

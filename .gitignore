@@ -1,0 +1,7 @@
+*.csv
+# But track CSV files for augment
+!/MMLU-Pro-Augment/dataset/data/*.csv
+*.parquet
+*.pcap
+.DS_Store
+.DS_Store?
