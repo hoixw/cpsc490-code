@@ -15,6 +15,7 @@ import signal
 MODEL = "openai/gpt-4o-mini"
 OPENROUTER_API_KEY = ""
 PROVIDER = "OpenAI"
+LOCAL_IP = "1.1.1.1"
 SCRAPE_TRAIN = True
 SCRAPE_TEST = True
 NUM_WORKERS = 8
@@ -46,13 +47,12 @@ def get_free_port():
 # Part 3: Functions to start/stop tcpdump and check retransmissions
 # -------------------------------
 
-local_ip = "159.203.90.140"
 def start_tcpdump(local_port, output_file):
     ## We capture all inbound traffic (matching static IP + port)
     ## Capture outbound traffic IFF > 99 bytes — ignore ACKs
     filter_expression = (
-        f"((dst host {local_ip} and dst port {local_port}) or "
-        f"(src host {local_ip} and src port {local_port} and greater 99))"
+        f"((dst host {LOCAL_IP} and dst port {local_port}) or "
+        f"(src host {LOCAL_IP} and src port {local_port} and greater 99))"
     )
     cmd = [
         "tcpdump",

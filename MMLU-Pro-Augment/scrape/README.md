@@ -13,6 +13,7 @@ The following constants at the top of the file will need to be set:
 - `MODEL`: to be set to the model name on OpenRouter
 - `OPENROUTER_API_KEY`: to be set to the API key. OpenRouter allows charges to be forwarded to an OpenAI / Gemini AI Studio / etc API account, but this must be done on their website and they charge a small fee for doing so.
 - `PROVIDER`: to be set to the model provider. Nearly every model has multiple providers. For OpenAI-based models, we always use the `OpenAI` provider. For Llama 3.3, we use `Friendli`.
+- `LOCAL_IP`: to be set to the IP of the system.
 
 Some constants may be modified:
 
