@@ -1,6 +1,5 @@
 import pandas as pd
 import json
-from pathlib import Path
 import os
 
 RANDOM_SEED = 42
@@ -113,9 +112,6 @@ def generate_query(row):
         query += "None\n"
     
     return query
-
-# Create output directory if it doesn't exist
-Path("output").mkdir(exist_ok=True)
 
 # Initialize empty DataFrames for each set
 train_data = []

@@ -271,13 +271,11 @@
     <section class="abstract-section">
         <h2 class="section-title">Abstract</h2>
         <div class="abstract-content">
-            Phasellus tempor gravida dolor, ut varius eros congue quis. Praesent id felis dapibus, cursus eros eu, eleifend tortor. Nulla id felis id quam pretium consequat quis at nulla. Mauris nec molestie velit. Nunc ac suscipit odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla facilisi. Curabitur sagittis massa vitae felis fringilla finibus. Nam ullamcorper et diam vitae dictum.
+            Large language models (LLMs) now answer billions of streamed queries each day. To keep latency acceptable, inference providers adopt techniques to improve resource efficiency and throughput. Many utilise speculative decoding, wherein a lightweight draft model proposes several future tokens that the original model then verifies. This technique, however, unintentionally introduces timing side-channels observable by network adversaries, which can be utilised to infer sensitive attributes of a user's prompt. 
             <br/><br/>
-            Cras id magna viverra, volutpat quam in, commodo enim. In interdum vehicula enim, vitae laoreet nibh eleifend at. Suspendisse et viverra tellus, a euismod est. Proin sagittis turpis blandit porttitor mollis. Sed rhoncus mi at elit imperdiet gravida. Maecenas turpis nunc, ultrices sed condimentum et, tincidunt feugiat ante. Maecenas at lectus vel nunc facilisis viverra sed semper velit.
+            Under a purely passive, black-box threat model we perform a multi-scenario evaluation across tasks like medical diagnosis classification, user language identification, and educational topic inference, each with ten target classes. We utilise three popular commercially deployed LLMs: GPT-4o-mini, DeepSeek V3 (0324) and Llama 3.3 70B. Collecting up to 12 000 training and 3 000 test traces per task, we extract per-packet and per-round statistical features and train a stacked MLP/XGBoost ensemble. Our classifier achieves top-1 accuracies between 50\% and 72\% (versus a 10\% random baseline) and top-3 accuracies up to 92\%, demonstrating a high-fidelity side-channel in widely deployed inference APIs that undermines TLS-protected streaming.
             <br/><br/>
-            Phasellus pretium odio quis gravida tincidunt. Nullam risus lorem, porttitor id ligula ut, tristique luctus tortor. Donec quis orci nec nunc suscipit lobortis at eu magna. In vehicula arcu sit amet lectus pellentesque, eu facilisis purus porttitor. Vestibulum auctor dui eros, vel maximus libero molestie quis. Aliquam egestas dictum velit, blandit iaculis mauris. Praesent augue libero, ultricies quis vulputate congue, dignissim et diam. Nullam ac arcu mattis, egestas nisi sed, aliquet ipsum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse pellentesque hendrerit massa, nec eleifend mi fringilla vitae. Proin elementum auctor bibendum. Curabitur aliquet urna velit, accumsan volutpat ipsum maximus at.
-            <br/><br/>
-            Ut fermentum laoreet eros, sit amet rutrum eros lobortis in. Morbi vel velit quis ipsum feugiat placerat ullamcorper a orci. Suspendisse potenti. Quisque vel metus a sapien tincidunt ultricies. Donec odio elit, auctor sed diam vel, bibendum congue mauris. Ut vestibulum vulputate tellus accumsan egestas. Integer bibendum orci ac erat cursus, finibus interdum mauris fringilla. Suspendisse et porttitor diam. Cras suscipit tortor molestie placerat vestibulum. Duis eget imperdiet elit, id malesuada massa. Vivamus ultricies erat.
+            We discuss potential mitigations and outline avenues for future work: on attacks targeting multi-token JSON wrappers; on robustness across varied network environments, models, and providers; and on developing draft models resistant to this attack. Our results show critical vulnerabilities in model-serving practices utilised by major providers.
         </div>
     </section>
     
@@ -285,26 +283,26 @@
         <h2 class="section-title">Deliverables</h2>
         <div class="deliverables-grid">
             <div class="deliverable-card">
-                <a href="#">
+                <a href="thesis.pdf">
                     <div class="card-header">Final Report</div>
                 </a>
             </div>
             
             <div class="deliverable-card">
-                <a href="#">
+                <a href="poster.pdf">
                     <div class="card-header">Final Poster</div>
                 </a>
             </div>
             
             <div class="deliverable-card">
-                <a href="#">
+                <a href="proposal.pdf">
                     <div class="card-header">Project Proposal</div>
                 </a>
             </div>
             
             <div class="deliverable-card">
-                <a href="#">
-                    <div class="card-header">Source Code</div>
+                <a href="https://github.com/hoixw/cpsc490-code">
+                    <div class="card-header">Source Code (Github)</div>
                 </a>
             </div>
         </div>
