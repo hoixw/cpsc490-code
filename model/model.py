@@ -559,7 +559,7 @@ def process_dataset(data_dir, model_type="mlp"):
     all_prompts = set()
     # Limit prompt scanning for efficiency if dataset is huge
     print("Scanning for unique prompts...")
-    for subject in tqdm(subject_dirs, desc="Scanning Subjects"):
+    for subject in tqdm(subject_dirs, desc="Scanning Categories"):
         subject_path = os.path.join(data_dir, subject)
         pcap_files = glob.glob(os.path.join(subject_path, "query_*.pcap"))
         for i, pcap_file in enumerate(pcap_files):
