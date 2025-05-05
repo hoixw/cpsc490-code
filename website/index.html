@@ -247,6 +247,48 @@
                 grid-template-columns: 1fr; /* 1 column for small screens */
             }
         }
+
+        .deliverable-card.dropdown {
+            position: relative;
+            overflow: visible;
+        }
+
+        /* === Hidden menu === */
+        .deliverable-card.dropdown .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--light-accent);
+            border: 1px solid rgba(0,0,0,0.1);
+            box-shadow: var(--shadow);
+            z-index: 100;
+            text-align: center;
+        }
+
+        /* === Show on hover === */
+        .deliverable-card.dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* === Style the links inside === */
+        .deliverable-card.dropdown .dropdown-content a {
+            display: block;
+            padding: 10px 10px;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        .deliverable-card.dropdown .dropdown-content a:hover {
+            background-color: rgba(255, 213,  90, 0.5);
+        }
+
+        .deliverable-card.dropdown .caret {
+            margin-left: 6px;
+            font-size: 0.8rem;
+            vertical-align: middle;
+        }
     </style>
 </head>
 <body>
@@ -271,11 +313,11 @@
     <section class="abstract-section">
         <h2 class="section-title">Abstract</h2>
         <div class="abstract-content">
-            Large language models (LLMs) now answer billions of streamed queries each day. To keep latency acceptable, inference providers adopt techniques to improve resource efficiency and throughput. Many utilise speculative decoding, wherein a lightweight draft model proposes several future tokens that the original model then verifies. This technique, however, unintentionally introduces timing side-channels, as the acceptance or rejection of draft tokens leads to observable differences in inter-packet timings and sizes, which can be utilised to infer sensitive attributes of a user's prompt.
+            Large language models (LLMs) are now used to serve billions of streamed queries daily. To reduce compute costs and improve response speed, inference providers employ a variety of optimization techniques. One such method is speculative decoding, wherein a lightweight draft model proposes several future tokens that the original model subsequently verifies. This optimization, however, inadvertently introduces timing side-channels, as accepted or rejected draft tokens cause observable differences in packet timings and sizes, which can be utilized to infer sensitive attributes of a user’s prompt.
             <br/><br/>
-            Under a purely passive, black-box threat model we perform a multi-scenario evaluation across tasks like medical diagnosis classification, user language identification, and educational topic inference, each with ten target classes. We utilise three popular commercially deployed LLMs: GPT-4o-mini, DeepSeek V3 (0324) and Llama 3.3 70B. Collecting up to 12,000 training and 3,000 test traces per task, we extract timing, packet size, and speculative round statistics, including inter-packet delays and token-per-packet distributions and train a stacked MLP/XGBoost ensemble. Our classifier achieves top-1 accuracy of 62–72% on language and medical classification tasks (vs. 10% random), and 49–54% on educational topic classification, with top-3 accuracy reaching up to 92%, demonstrating a high-fidelity side-channel capable of reliably inferring user intent in widely deployed inference APIs that undermines TLS-protected streaming.
+            Under a purely passive, black-box threat model—without direct interaction or special access to model infrastructure—we evaluate these side-channels across several realistic scenarios, including medical diagnosis classification, user language identification, and educational topic inference, each with ten distinct target classes. We utilize three popular, commercially deployed LLMs: GPT-4o-mini, DeepSeek V3 (0324), and Llama 3.3 70B. Collecting up to 12,000 training and 3,000 test traces per scenario, we extract comprehensive timing, packet-size, and speculative-round statistics, then train a stacked MLP/XGBoost ensemble classifier. Our model achieves top-1 accuracy of 62-72% on language and medical classification tasks (vs. 10% random) and 49-54% on educational topic classification, with top-3 accuracy up to 92%. These results demonstrate a practical side-channel attack capable of reliably inferring user intent from encrypted streams.
             <br/><br/>
-            We discuss potential mitigations and outline avenues for future work: on attacks targeting multi-token JSON wrappers; on robustness across varied network environments, models, and providers; and on developing draft models resistant to this attack. Our results show critical vulnerabilities in model-serving practices utilised by major providers.        </div>
+            We discuss potential mitigations and outline avenues for future work, including exploring attacks on multi-token JSON wrappers, testing robustness across diverse network conditions and provider implementations, and developing draft models resistant to speculative decoding attacks. Our findings highlight significant vulnerabilities in current inference-serving practices used by major LLM providers.
     </section>
     
     <section class="deliverables-section">
@@ -299,10 +341,18 @@
                 </a>
             </div>
             
-            <div class="deliverable-card">
-                <a href="https://github.com/hoixw/cpsc490-code">
-                    <div class="card-header">Source Code (Github)</div>
-                </a>
+            <div class="deliverable-card dropdown">
+                <div class="card-header">
+                  Source Code <span class="caret">▾</span>
+                </div>
+                <div class="dropdown-content">
+                  <a href="https://github.com/hoixw/cpsc490-code" target="_blank">
+                    GitHub Repository
+                  </a>
+                  <a href="code.zip" download>
+                    Download ZIP
+                  </a>
+                </div>
             </div>
         </div>
     </section>
